@@ -28,10 +28,10 @@ class UserAgentSubscriber implements EventSubscriberInterface
         $userAgent = $request->headers->get('User-Agent');
         $this->logger->warning("User Agent: $userAgent");
 
-        if (rand(0,100) > 50) {
-            $response = new Response('Come back later!');
-            $event->setResponse($response);
-        }
+//        if (rand(0,100) > 50) {
+//            $response = new Response('Come back later!');
+//            $event->setResponse($response);
+//        }
     }
 
     public static function getSubscribedEvents()
