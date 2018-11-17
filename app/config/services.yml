@@ -9,7 +9,7 @@ services:
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
     user_agent_subscriber:
         class: AppBundle\EventListener\UserAgentSubscriber
-        arguments:
+        arguments: ["@logger"]
         tags:
             - { name: kernel.event_subscriber }
 
