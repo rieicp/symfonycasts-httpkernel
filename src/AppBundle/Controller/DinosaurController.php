@@ -11,7 +11,7 @@ class DinosaurController extends Controller
     /**
      * @Route("/", name="dinosaur_list")
      */
-    public function indexAction()
+    public function indexAction($isMac)
     {
         $dinos = $this->getDoctrine()
             ->getRepository('AppBundle:Dinosaur')
@@ -19,6 +19,7 @@ class DinosaurController extends Controller
 
         return $this->render('dinosaurs/index.html.twig', [
             'dinos' => $dinos,
+            'isMac' => $isMac
         ]);
     }
 
