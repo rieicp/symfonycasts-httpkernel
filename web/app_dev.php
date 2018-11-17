@@ -23,15 +23,8 @@ Debug::enable();
 require_once __DIR__.'/../app/AppKernel.php';
 
 $kernel = new AppKernel('dev', true);
-//$kernel->loadClassCache();
+$kernel->loadClassCache();
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
-
-$request2 = Request::create('/dinosaurs/2');
-$response2 = $kernel->handle($request2);
-
-echo $response->getContent();
-echo $response2->getContent();
-
-//$response->send();
-//$kernel->terminate($request, $response);
+$response->send();
+$kernel->terminate($request, $response);
