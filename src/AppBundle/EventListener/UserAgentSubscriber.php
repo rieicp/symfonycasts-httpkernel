@@ -36,6 +36,9 @@ class UserAgentSubscriber implements EventSubscriberInterface
 //        $request->attributes->set('_controller', function($id){
 //            return new Response('Hello '.$id);
 //        });
+
+        $isMac = stripos($userAgent, 'mac') !== false;
+        $request->attributes->set('isMac', $isMac);
     }
 
     public static function getSubscribedEvents()
