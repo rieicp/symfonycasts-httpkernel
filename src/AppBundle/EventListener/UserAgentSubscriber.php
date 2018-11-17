@@ -4,6 +4,7 @@ namespace AppBundle\EventListener;
 
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
 class UserAgentSubscriber implements EventSubscriberInterface
 {
@@ -17,14 +18,17 @@ class UserAgentSubscriber implements EventSubscriberInterface
         $this->logger = $logger;
     }
 
-    public function onKernelRequest()
+    public function onKernelRequest(GetResponseEvent $event)
     {
         $this->logger->info('JFOPWIJFLWPDOW{P!@#');
+        $this->logger->debug($event->getName());
+        $request = $event->getRequest();
+        $userAgent = $request->headers->get('User-Agent');
+        $this->logger->warning("User Agent: $userAgent");
     }
 
     public static function getSubscribedEvents()
     {
-        // TODO: Implement getSubscribedEvents() method.
         return [
             'kernel.request' => 'onKernelRequest'
         ];
