@@ -41,6 +41,9 @@ class UserAgentSubscriber implements EventSubscriberInterface
 //        $request->attributes->set('isMac', $isMac);
 
         $isMozilla = stripos($userAgent, 'Mozilla') !== false;
+        if ($request->query->get('notMozilla')) {
+            $isMozilla = false;
+        }
         $request->attributes->set('isMozilla', $isMozilla);
     }
 
