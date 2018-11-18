@@ -39,7 +39,9 @@
                 </div>
                 <div class="clearfix">
                 </div>
-                {{ render(controller('AppBundle:Dinosaur:_latestTweets')) }}
+                {{ render(controller('AppBundle:Dinosaur:_latestTweets', {
+                    'userOnMozilla': app.request.attributes.get('isMozilla')
+                })) }}
             </div>
         </div>
 

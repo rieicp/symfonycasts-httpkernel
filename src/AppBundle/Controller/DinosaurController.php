@@ -41,7 +41,7 @@ class DinosaurController extends Controller
         ]);
     }
 
-    public function _latestTweetsAction($isMozilla)
+    public function _latestTweetsAction($userOnMozilla)
     {
         $tweets = [
             'Dinosaurs can have existential crises too you know.',
@@ -51,7 +51,7 @@ class DinosaurController extends Controller
 
         return $this->render('dinosaurs/_latestTweets.html.twig', [
             'tweets' => $tweets,
-            'isMozilla' => $isMozilla,
+            'isMozilla' => $userOnMozilla,
         ]);
     }
 } 
