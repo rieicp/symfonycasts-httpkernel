@@ -22,6 +22,10 @@ class UserAgentSubscriber implements EventSubscriberInterface
 
     public function onKernelRequest(GetResponseEvent $event)
     {
+        if (!$event->isMasterRequest()) {
+            return;
+        }
+
         $this->logger->info('JFOPWIJFLWPDOW{P!@#');
         $this->logger->debug($event->getName());
         $request = $event->getRequest();
