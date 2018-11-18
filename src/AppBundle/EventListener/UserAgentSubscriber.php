@@ -37,8 +37,11 @@ class UserAgentSubscriber implements EventSubscriberInterface
 //            return new Response('Hello '.$id);
 //        });
 
-        $isMac = stripos($userAgent, 'mac') !== false;
-        $request->attributes->set('isMac', $isMac);
+//        $isMac = stripos($userAgent, 'mac') !== false;
+//        $request->attributes->set('isMac', $isMac);
+
+        $isMozilla = stripos($userAgent, 'Mozilla') !== false;
+        $request->attributes->set('isMozilla', $isMozilla);
     }
 
     public static function getSubscribedEvents()

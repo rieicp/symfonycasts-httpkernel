@@ -11,7 +11,7 @@ class DinosaurController extends Controller
     /**
      * @Route("/", name="dinosaur_list")
      */
-    public function indexAction($isMac)
+    public function indexAction($isMozilla)
     {
         $dinos = $this->getDoctrine()
             ->getRepository('AppBundle:Dinosaur')
@@ -19,7 +19,7 @@ class DinosaurController extends Controller
 
         return $this->render('dinosaurs/index.html.twig', [
             'dinos' => $dinos,
-            'isMac' => $isMac
+            'isMozilla' => $isMozilla,
         ]);
     }
 
@@ -41,7 +41,7 @@ class DinosaurController extends Controller
         ]);
     }
 
-    public function _latestTweetsAction()
+    public function _latestTweetsAction($isMozilla)
     {
         $tweets = [
             'Dinosaurs can have existential crises too you know.',
@@ -50,7 +50,8 @@ class DinosaurController extends Controller
         ];
 
         return $this->render('dinosaurs/_latestTweets.html.twig', [
-            'tweets' => $tweets
+            'tweets' => $tweets,
+            'isMozilla' => $isMozilla,
         ]);
     }
 } 
