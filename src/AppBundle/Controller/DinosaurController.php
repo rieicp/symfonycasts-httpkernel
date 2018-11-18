@@ -20,7 +20,7 @@ class DinosaurController extends Controller
             ->findAll();
 
 
-        $request = new Request();
+/*        $request = new Request();
         $request->attributes->set(
             '_controller',
             'AppBundle:Dinosaur:_latestTweets'
@@ -29,7 +29,7 @@ class DinosaurController extends Controller
         $response = $httpKernel->handle(
             $request,
             HttpKernelInterface::SUB_REQUEST
-        );
+        );*/
 
 
         return $this->render('dinosaurs/index.html.twig', [
