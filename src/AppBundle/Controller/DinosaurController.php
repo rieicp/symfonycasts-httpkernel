@@ -40,4 +40,17 @@ class DinosaurController extends Controller
             'dino' => $dino,
         ]);
     }
+
+    public function _latestTweetsAction()
+    {
+        $tweets = [
+            'Dinosaurs can have existential crises too you know.',
+            'Eating lollipops... ',
+            'Rock climbing... '
+        ];
+
+        return $this->render('dinosaurs/_latestTweets.html.twig', [
+            'tweets' => $tweets
+        ]);
+    }
 } 
